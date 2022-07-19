@@ -13,14 +13,17 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(CMAKE_BUILD_TYPE Release) # or debug if you need to use gdb on it.
+set(CMAKE_BUILD_TYPE Debug) # or debug if you need to use gdb on it.
+IF (CMAKE_BUILD_TYPE STREQUAL Debug) 
+	ADD_DEFINITIONS(-DACN_RDMA_DEBUG)
+ENDIF()
 
 # Some how g++ has better performance than clang++. Of course I don't know all flags for clang++.
 set(CMAKE_CXX_COMPILER g++) # or clang++
 #set(CMAKE_CXX_COMPILER clang++) # or clang++
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Ofast -ffast-math -funroll-loops -march=native") # get crazy here
-#add_compile_options("-std=c++17")
-#set(CMAKE_CXX_FLAGS "-O0  -ggdb")
+add_compile_options("-std=c++17")
+set(CMAKE_CXX_FLAGS "-O0  -ggdb")
 
 find_library(IBVERBS_LIBRARY ibverbs HINTS /home/atr/local/lib)
 find_library(RDMACM_LIBRARY rdmacm HINTS /home/atr/local/lib)
