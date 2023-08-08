@@ -22,7 +22,6 @@ ENDIF()
 set(CMAKE_CXX_COMPILER g++) # or clang++
 #set(CMAKE_CXX_COMPILER clang++) # or clang++
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Ofast -ffast-math -funroll-loops -march=native") # get crazy here
-add_compile_options("-std=c++17")
 set(CMAKE_CXX_FLAGS "-O0  -ggdb")
 
 find_library(IBVERBS_LIBRARY ibverbs HINTS /home/atr/local/lib)
