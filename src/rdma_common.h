@@ -30,7 +30,7 @@
 #define rdma_error(msg, args...) do {\
 	fprintf(stderr, "%s : %d : ERROR : "msg, __FILE__, __LINE__, ## args);\
 }while(0);
-
+#define ACN_RDMA_DEBUG
 #ifdef ACN_RDMA_DEBUG 
 /* Debug Macro */
 #define debug(msg, args...) do {\
@@ -46,7 +46,7 @@
 /* Capacity of the completion queue (CQ) */
 #define CQ_CAPACITY (16)
 /* MAX SGE capacity */
-#define MAX_SGE (2)
+#define MAX_SGE (1)
 /* MAX work requests */
 #define MAX_WR (8)
 /* Default port where the RDMA server is listening */
