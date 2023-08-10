@@ -250,6 +250,7 @@ static int client_connect_to_server()
 		return -errno;
 	}
 	printf("The client is connected successfully \n");
+	exit(-1);
 	return 0;
 }
 
